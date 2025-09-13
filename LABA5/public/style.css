@@ -1,0 +1,12 @@
+
+:root { --bg:#0f172a; --text:#e5e7eb; --muted:#94a3b8; --accent:#22d3ee; }
+*{box-sizing:border-box;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif}
+body{margin:0;background:#0f172a;color:var(--text)}
+.container{max-width:900px;margin:32px auto;padding:0 16px}
+h1{margin:0 0 16px}
+h2{color:var(--accent);margin:20px 0 8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+input{padding:10px;border-radius:10px;border:1px solid #334155;background:#0b1220;color:var(--text)}
+button{margin-top:8px;background:var(--accent);color:#0b1220;border:0;padding:10px 14px;border-radius:12px;font-weight:700;cursor:pointer}
+pre{background:#0b1220;border-radius:12px;padding:12px;white-space:pre-wrap}
+.note{color:var(--muted)}

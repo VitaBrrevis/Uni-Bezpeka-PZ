@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <title>ЛР4 — Валідація підпису JWT (Auth0)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>ЛР4 — Валідація підпису JWT</h1>
+    <p class="note">UI звертається до бекенду на <code>http://localhost:3000</code>. Кукі — httpOnly.</p>
+
+    <section>
+      <h2>Login</h2>
+      <div class="grid">
+        <label>Email <input id="login-email" type="email" placeholder="user@example.com" /></label>
+        <label>Пароль <input id="login-pass" type="password" placeholder="••••••••" /></label>
+      </div>
+      <button id="btn-login">POST /api/login</button>
+    </section>
+
+    <section>
+      <h2>Signup (Management API)</h2>
+      <div class="grid">
+        <label>Email <input id="su-email" type="email" placeholder="new.user@example.com" /></label>
+        <label>Пароль <input id="su-pass" type="password" placeholder="N3w_Sup3r_Pass!" /></label>
+        <label>Ім'я <input id="su-given" type="text" placeholder="New" /></label>
+        <label>Прізвище <input id="su-family" type="text" placeholder="User" /></label>
+      </div>
+      <button id="btn-signup">POST /api/signup</button>
+    </section>
+
+    <section>
+      <h2>Me (claims)</h2>
+      <button id="btn-me">GET /api/me</button>
+    </section>
+
+    <section>
+      <h2>Protected (auto-refresh)</h2>
+      <button id="btn-protected">GET /api/protected</button>
+    </section>
+
+    <section>
+      <h2>Verify ID Token (signature)</h2>
+      <button id="btn-verify-id">GET /api/verify-id</button>
+    </section>
+
+    <section>
+      <h2>Verify Access Token (signature)</h2>
+      <input id="bearer" type="text" placeholder="(опційно) встав ACCESS_TOKEN для перевірки" />
+      <button id="btn-verify-access">GET /api/verify-access</button>
+    </section>
+
+    <section>
+      <h2>Protected (requires signed ID)</h2>
+      <button id="btn-protected-verified">GET /api/protected-verified</button>
+    </section>
+
+    <section>
+      <h2>Відповідь</h2>
+      <pre id="out">(поки порожньо)</pre>
+    </section>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
