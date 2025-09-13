@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <title>Auth0 ROPC Demo — token_auth</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Auth0 ROPC (password-realm) демо</h1>
+
+    <section>
+      <h2>Логін</h2>
+      <div class="grid">
+        <label>Email
+          <input id="login-email" type="email" placeholder="user@example.com" />
+        </label>
+        <label>Пароль
+          <input id="login-pass" type="password" placeholder="••••••••" />
+        </label>
+      </div>
+      <button id="btn-login">POST /api/login</button>
+      <small>Повертає <code>access_token</code>, <code>id_token</code>, <code>refresh_token</code> і ставить їх у cookies.</small>
+    </section>
+
+    <section>
+      <h2>Signup (додатковий бал)</h2>
+      <div class="grid">
+        <label>Email
+          <input id="su-email" type="email" placeholder="new.user@example.com" />
+        </label>
+        <label>Пароль
+          <input id="su-pass" type="password" placeholder="N3w_Sup3r_Pass!" />
+        </label>
+        <label>Ім'я
+          <input id="su-given" type="text" placeholder="New" />
+        </label>
+        <label>Прізвище
+          <input id="su-family" type="text" placeholder="User" />
+        </label>
+      </div>
+      <button id="btn-signup">POST /api/signup</button>
+      <small>Створює користувача через Management API.</small>
+    </section>
+
+    <section>
+      <h2>Я (claims)</h2>
+      <button id="btn-me">GET /api/me</button>
+      <small>Повертає claims з <code>id_token</code> (з cookie).</small>
+    </section>
+
+    <section>
+      <h2>Захищений роут (авто-рефреш)</h2>
+      <button id="btn-protected">GET /api/protected</button>
+      <small>Якщо до закінчення токена залишилось мало часу — сервер зробить refresh автоматично.</small>
+    </section>
+
+    <section>
+      <h2>Ручний refresh</h2>
+      <div class="grid">
+        <label>Refresh token (необов'язково; якщо пусто — візьме з cookie)
+          <input id="rf-token" type="text" placeholder="(опційно) встав свій refresh_token" />
+        </label>
+      </div>
+      <button id="btn-refresh">POST /api/refresh</button>
+    </section>
+
+    <section>
+      <h2>Відповідь сервера</h2>
+      <pre id="out">(тут буде відповідь)</pre>
+    </section>
+
+    <footer>
+      <small>Лабораторна: Auth0 ROPC + refresh + signup. Frontend працює як простий клієнт до вашого Node/Express бекенду.</small>
+    </footer>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
